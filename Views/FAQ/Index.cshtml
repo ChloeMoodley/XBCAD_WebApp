@@ -1,0 +1,36 @@
+﻿@model IEnumerable<XBCAD_WebApp.Models.FAQModel>
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1 class="text-center">Frequently Asked Questions</h1>
+
+@*<p>
+    <a asp-action="Create" class="btn btn-primary">Add new Employee</a>
+</p>*@
+
+@*For the display of the employee info*@
+
+<table class="table table-hover">
+    <thead>
+        <tr>
+            <th>Question</th>
+            <th>Answer</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var q in Model)
+        {
+            <tr>
+                <td>@Html.DisplayFor(modelItem => q.Question)</td>
+                <td>@Html.DisplayFor(modelItem => q.Answer)</td>
+                @*<td>
+                    <a asp-action="Edit" asp-route-id="@q.id" class="btn btn-warning">Edit</a>
+                    <a asp-action="Details" asp-route-id="@q.id" class="btn btn-primary">Details</a>
+                    <a asp-action="Delete" asp-route-id="@q.id" class="btn btn-danger">Delete</a>
+                </td>*@
+            </tr>
+        }
+    </tbody>
+</table>
