@@ -7,7 +7,7 @@
 <h1 class="text-center">Frequently Asked Questions</h1>
 
 <p class="text-center">
-    <a asp-action="EmpFAQIndex" class="btn btn-primary">Button to test Employee FAQ Operations</a>
+    <a asp-action="Create" class="btn btn-primary text-center">Add new FAQ</a>
 </p>
 
 @*For the display of the employee info*@
@@ -25,6 +25,10 @@
             <tr>
                 <td>@Html.DisplayFor(modelItem => q.Question)</td>
                 <td>@Html.DisplayFor(modelItem => q.Answer)</td>
+                <td>
+                    <a asp-action="Edit" asp-route-id="@q.id" class="btn btn-warning">Edit</a>
+                    <a asp-action="Delete" asp-route-id="@q.id" class="btn btn-danger">Delete</a>
+                </td>
             </tr>
         }
     </tbody>

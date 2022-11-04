@@ -1,9 +1,15 @@
-﻿namespace XBCAD_WebApp.Models
+﻿using System.ComponentModel.DataAnnotations;
+
+namespace XBCAD_WebApp.Models
 {
     public class FAQModel
     {
-        public int id { get; set; }
+        public string? id { get; set; }
+
+        [Required]
         public string Question { get; set; }
+
+        [Required]
         public string Answer { get; set; }
 
         public FAQModel()
