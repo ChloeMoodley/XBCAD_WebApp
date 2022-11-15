@@ -13,24 +13,31 @@ namespace XBCAD_WebApp.Controllers
 
         // Login view ()
 
-        //create register
+        //create Login
         [HttpGet]       //sends and recieve data between the client and server using the web app
         public IActionResult Employee_Login()       //makes the html code visible on the web pages as it returns the view
         {
             return View();
         }
 
-/*        [HttpPost]  //this pushes the below method, so it can override any other method
-        [ValidateAntiForgeryToken]      //provides vailadation for any unsafe HTTP
-        public IActionResult Employee_Login([Bind] EmployeeModel objReg)
-        {
-*//*            if (ModelState.IsValid)
-            {
-                return RedirectToAction("Create", "Login", new { LoginController = "" });
-            }
+        /*        [HttpPost]  //this pushes the below method, so it can override any other method
+                [ValidateAntiForgeryToken]      //provides vailadation for any unsafe HTTP
+                public IActionResult Employee_Login([Bind] EmployeeModel objReg)
+                {
+        *//*            if (ModelState.IsValid)
+                    {
+                        return RedirectToAction("Create", "Login", new { LoginController = "" });
+                    }
 
-            return View();*//*
-        }*/
+                    return View();*//*
+                }*/
+
+        //create register
+        [HttpGet]       //sends and recieve data between the client and server using the web app
+        public IActionResult Employee_HomePage()       //makes the html code visible on the web pages as it returns the view
+        {
+            return View();
+        }
 
     }
 }
