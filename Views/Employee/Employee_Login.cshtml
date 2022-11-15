@@ -1,1 +1,64 @@
 ﻿<h1>EMPLOYEE LOGIN</h1>
+@model EmployeeModel
+@{
+    ViewData["Title"] = "Employee_Login";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@*  (W3schools, 2021) and //(4. Continuation and close off, 2021) *@
+
+<html>
+<body>
+    <div class="container" style="padding-top:5%">
+        <div class="row">
+            <div class="col-md-12">
+                <div>
+                    <img src="/lib/Images/LoginPage.png" style="width:1000px; height:500px; position:fixed; top:40%; right:0%" />
+
+                    <div style="background-color: #009DEA">
+                        <h1 style="margin: 0px 0px 0px 0px">Login Page</h1>
+                        <p class="text-center">Please fill out all the following information in the textboxs below. All information is required.</p>
+                        <div class="col-md-6">
+                            <form asp-action="Employee_Login">
+                                <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
+                                <div class="form-group">
+                                    <label asp-for="Employee_Username" class="control-label-">Username</label>
+                                    <input asp-for="Employee_Username" class="form-control" />
+                                    <span asp-validation-for="Employee_Username" class="text-danger"></span>
+                                </div>
+
+                                <div class="form-group">
+                                    <label asp-for="Employee_Password" class="control-label">Password</label>
+                                    <input type="password" asp-for="Employee_Password" class="form-control" />
+                                    <span asp-validation-for="Employee_Password" class="text-danger"></span>
+                                </div>
+
+                                <button onclick="myFunction()" class="btn btn-warning">Reminder</button>
+
+                                <script>
+                                    function myFunction() {
+                                        alert("Hello! I am an alert box!");
+                                    }
+                                </script>
+
+                                <p> </p>
+                                <div class="form-group">
+                                    <input type="submit" value="Submit" asp-action="display" class="btn btn-primary" />
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}

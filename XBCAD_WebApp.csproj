@@ -6,4 +6,8 @@
     <ImplicitUsings>enable</ImplicitUsings>
   </PropertyGroup>
 
+  <ItemGroup>
+    <None Include="wwwroot\lib\Images\LoginPage.png" />
+  </ItemGroup>
+
 </Project>
