@@ -28,7 +28,7 @@ namespace XBCAD_WebApp.Controllers
             List<FAQModel> FAQList = new List<FAQModel>();
 
             fbClient = new FireSharp.FirebaseClient(ifc);
-            FirebaseResponse response = fbClient.Get("FAQ's");
+            FirebaseResponse response = fbClient.Get("WebFAQ's");
             dynamic data = JsonConvert.DeserializeObject<dynamic>(response.Body);
 
             if (data != null)
@@ -50,7 +50,7 @@ namespace XBCAD_WebApp.Controllers
             List<FAQModel> FAQList = new List<FAQModel>();
 
             fbClient = new FireSharp.FirebaseClient(ifc);
-            FirebaseResponse response = fbClient.Get("FAQ's");
+            FirebaseResponse response = fbClient.Get("WebFAQ's");
             dynamic data = JsonConvert.DeserializeObject<dynamic>(response.Body);
 
             if (data != null)
@@ -81,9 +81,9 @@ namespace XBCAD_WebApp.Controllers
             {
                 fbClient = new FireSharp.FirebaseClient(ifc);
                 var data = faqObj;
-                PushResponse response = fbClient.Push("FAQ's/", data);
+                PushResponse response = fbClient.Push("WebFAQ's/", data);
                 data.id = response.Result.name;
-                SetResponse setResponse = fbClient.Set("FAQ's/" + data.id, data);
+                SetResponse setResponse = fbClient.Set("WebFAQ's/" + data.id, data);
 
                 if (setResponse.StatusCode == System.Net.HttpStatusCode.OK)
                 {
@@ -110,7 +110,7 @@ namespace XBCAD_WebApp.Controllers
         public ActionResult Edit(string id)
         {
             fbClient = new FireSharp.FirebaseClient(ifc);
-            FirebaseResponse response = fbClient.Get("FAQ's/" + id);
+            FirebaseResponse response = fbClient.Get("WebFAQ's/" + id);
             FAQModel data = JsonConvert.DeserializeObject<FAQModel>(response.Body);
             return View(data);
         }
@@ -119,7 +119,7 @@ namespace XBCAD_WebApp.Controllers
         public ActionResult Edit(FAQModel faq)
         {
             fbClient = new FireSharp.FirebaseClient(ifc);
-            SetResponse response = fbClient.Set("FAQ's/" + faq.id, faq);
+            SetResponse response = fbClient.Set("WebFAQ's/" + faq.id, faq);
             return RedirectToAction("EmpFAQIndex");
         }
 
@@ -128,7 +128,7 @@ namespace XBCAD_WebApp.Controllers
         public ActionResult Delete(string id)
         {
             fbClient = new FireSharp.FirebaseClient(ifc);
-            FirebaseResponse response = fbClient.Delete("FAQ's/" + id);
+            FirebaseResponse response = fbClient.Delete("WebFAQ's/" + id);
             return RedirectToAction("EmpFAQIndex");
         }
 

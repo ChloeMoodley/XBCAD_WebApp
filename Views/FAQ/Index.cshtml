@@ -4,7 +4,7 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h1 class="text-center">Frequently Asked Questions</h1>
+<h1 class="text-center" style="color:#ffcb0c;">Frequently Asked Questions</h1>
 
 <p class="text-center">
     <a asp-action="EmpFAQIndex" class="btn btn-primary">Button to test Employee FAQ Operations</a>
@@ -15,16 +15,16 @@
 <table class="table table-hover">
     <thead>
         <tr>
-            <th>Question</th>
-            <th>Answer</th>
+            <th style="color:#ffcb0c; font-size:2em">Questions</th>
+            <th style="color:#ffcb0c; font-size:2em">Answers</th>
         </tr>
     </thead>
     <tbody>
         @foreach (var q in Model)
         {
-            <tr>
-                <td>@Html.DisplayFor(modelItem => q.Question)</td>
-                <td>@Html.DisplayFor(modelItem => q.Answer)</td>
+            <tr class="shadow">
+                <td style="font-size:1.3em; background-color: #ffcb0c">@Html.DisplayFor(modelItem => q.Question)</td>
+                <td style="font-size:1.3em; background-color: dodgerblue">@Html.DisplayFor(modelItem => q.Answer)</td>
             </tr>
         }
     </tbody>
