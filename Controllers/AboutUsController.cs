@@ -4,7 +4,12 @@ namespace XBCAD_WebApp.Controllers
 {
     public class AboutUsController : Controller
     {
-        public IActionResult AboutUs()
+        public IActionResult Index()
+        {
+            return View();
+        }
+
+        public IActionResult AboutUsDisplay()
         {
             return View();
         }
