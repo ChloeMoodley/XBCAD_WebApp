@@ -54,7 +54,6 @@ namespace XBCAD_WebApp.Controllers
         [ValidateAntiForgeryToken]
         public IActionResult Upload([Bind] DealModel dealObj)
         {
-
             try
             {
                 fbClient = new FireSharp.FirebaseClient(ifc);

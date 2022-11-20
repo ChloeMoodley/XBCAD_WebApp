@@ -1,4 +1,5 @@
 ﻿using Microsoft.Build.Framework;
+using System.Drawing;
 
 namespace XBCAD_WebApp.Models
 {
@@ -9,18 +10,16 @@ namespace XBCAD_WebApp.Models
         public string Title { get; set; }
         [Required]
         public string Description { get; set; }
-        public string Image { get; set; }
 
         public DealModel()
         {
 
         }
 
-        public DealModel(string title, string description, string image)
+        public DealModel(string title, string description)
         {
             this.Title = title;
             this.Description = description;
-            this.Image = image;
         }
     }
 }
