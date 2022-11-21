@@ -1,0 +1,132 @@
+﻿@model PDF_Model
+@{
+    ViewData["Title"] = "PDFUpload";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+
+<head>
+    @*  (W3schools, 2021) and (Fontsawesome, 2017) *@
+    <meta charset="utf-8" />
+    @*<meta name="viewport" content="width=device-width, initial-scale=1.0" />*@
+    <link rel="stylesheet" href="~/css/site.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="path/to/font-awesome/css/font-awesome.min.css">
+
+    @*HTML Change Background Color (Simple How To Tutorial). 2021*@
+    <style>
+
+        h1 {
+            text-indent: 50px;
+            font-family: Bahnschrift;
+            color: #FFCB00;
+            font-weight: bold;
+            font-size: 70px;
+            padding-right: 0px;
+            padding-top: 5px;
+            float: left;
+            text-shadow: 2px 2px 4px #FFCB00;
+            text-decoration: underline;
+        }
+
+        h2 {
+            text-indent: 50px;
+            font-family: Bahnschrift;
+            color: white;
+            font-weight: bold;
+            font-size: 40px;
+            padding-right: 0px;
+            padding-top: 5px;
+            float: left;
+            text-align: center;
+            text-shadow: 2px 2px 4px #009DEA;
+            text-decoration: underline;
+        }
+
+        p {
+            padding-top: 30px;
+            font-family: Bahnschrift;
+            color: #EAD6A8;
+            text-align: center;
+            font-style: oblique;
+            font-size: 25px;
+            float: left;
+            padding-left: 0px;
+        }
+
+        a.CV {
+            padding-top: 58px;
+            font-weight: bold;
+            font-family: Bahnschrift;
+            color: #EAD6A8;
+            font-size: 30px;
+            float: right;
+            padding-right: 0px;
+        }
+
+        .column {
+            float: left;
+            width: 33.33%;
+            padding: 5px;
+        }
+
+        .row {
+            content: "";
+            clear: both;
+            display: table;
+        }
+
+    </style>
+</head>
+
+@*  (W3schools, 2021) and //(4. Continuation and close off, 2021) *@
+
+<html>
+<body style="background-color: white">
+    <div class="container" style="padding-top:5%">
+        <div class="row">
+            <div class="col-md-12">
+                <div style="background-color: #009DEA; position: absolute; left:450px; width: 50%; height:50%">
+                    <h1 class="text-center" style="position: absolute; left:200px">Upload PDF</h1>
+                    <div class="col-md-6">
+                        <form asp-action="Create">
+                            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
+                            <div class="form-group" style="position: absolute; left:200px; top:120px">
+                                <label asp-for="pdf_upload" class="control-label-" style="font-size:20px; color:white">Please Click Choose File to Upload Yello Trader</label>
+                            </div>
+
+                            <div class="form-group" style="position: absolute; left:200px; top:170px">
+                                <form action="/action_page.php">
+                                    <input type="file" id="myFile" name="filename" class="btn btn-warning">
+                                    <input type="submit">
+                                </form>
+                            </div>
+
+                            <div class="form-group" style="position: absolute; left:200px; top:250px">
+                                <label asp-for="pdf_upload" class="control-label-" style="font-size:20px; color:white">Please Click Delete to Delete Current Yello Trader</label>
+                            </div>
+
+                            <div class="form-group" style="position: absolute; left:200px; top:290px">
+                                <div class="form-group">
+                                    <input type="submit" value="DELETE" class="btn btn-danger" />
+                                </div>
+                            </div>
+
+                            <p> </p>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</body>
+</html>
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}
