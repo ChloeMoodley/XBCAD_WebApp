@@ -1,7 +1,6 @@
-﻿<h1>EMPLOYEE LOGIN</h1>
-@model EmployeeModel
+﻿@model EmployeeModel
 @{
-    ViewData["Title"] = "Employee_Login";
+    ViewData["Title"] = "Employee_HomePage";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
@@ -57,16 +56,7 @@
             font-weight:bold;
         }
 
-        a.CV {
-            padding-top: 58px;
-            font-weight: bold;
-            font-family: Bahnschrift;
-            color: #EAD6A8;
-            font-size: 30px;
-            float: right;
-            padding-right: 0px;
-        }
-
+        
         .column {
             float: left;
             width: 33.33%;
@@ -83,6 +73,7 @@
 </head>
 
 <html>
+    
 <body style="background-color:#FFCB00">
     <div class="row">
 
@@ -106,10 +97,7 @@
                         <h2 style="position:fixed; top:150px; left:1200px">EMPLOYEE HOMEPAGE</h2>
                         <p style="position:fixed; top:260px; left:340px"> UPLOAD FRONT-PAGE CONTENT </p>
 
-                        <div class="form-group" style="position:fixed; top:330px; left:390px">
-                            <input type="submit" value="GO" class="btn btn-warning" style="width:100px; height:50px" />
-                        </div>
-
+                        
                     </div>
                 </div>
             </div>
@@ -119,7 +107,7 @@
             <div style="background-color: black; width:20%; height:20%; position:fixed; top:450px; left:240px">
                 <div style="background-color: #FFCB00; width:20%; height:20%; position:fixed; top:470px; left:260px">
                     <div style="background-color: #009DEA; width:20%; height:20%; position:fixed; top:490px; left:280px">
-
+                        
                     </div>
                 </div>
             </div>
@@ -145,11 +133,29 @@
             </div>
         </div>
 
+        <p style="position:fixed; top:250px; left:280px">Upload FAQ</p>
 
+        <p style="position:fixed; top:500px; left:280px">Yello Pages Upload</p>
 
+        <p style="position:fixed; top:500px; left:-310px">Upload a video</p>
+
+        <div class="form-group" style="position:absolute; top:330px; left:390px">
+            <a asp-controller="Deal" asp-action="EmpDealIndex" class="btn btn-primary" style="width:100px; height:50px">Go</a>
+        </div>
+
+        <div class="form-group" style="position:absolute; top:330px; left:990px">
+            <a asp-controller="FAQ" asp-action="EmpFAQIndex" class="btn btn-primary" style="width:100px; height:50px">Go</a>
+        </div>
+
+        <div class="form-group" style="position:absolute; top:580px; left:390px">
+            @*<a asp-controller="Deal" asp-action="EmpDealIndex" class="btn btn-primary" style="width:100px; height:50px">Go</a>*@
+        </div>
+
+        <div class="form-group" style="position:absolute; top:580px; left:990px">
+            @*<a asp-controller="Deal" asp-action="EmpDealIndex" class="btn btn-primary" style="width:100px; height:50px">Go</a>*@
+        </div>
 
     </div>
-
 </body>
 </html>
 

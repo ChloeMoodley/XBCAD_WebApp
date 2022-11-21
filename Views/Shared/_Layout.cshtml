@@ -38,13 +38,10 @@
                             <a class="nav-link text-light" asp-area="" asp-controller="FAQ" asp-action="Index">FAQ</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link text-light" asp-area="" asp-controller="Deal" asp-action="EmpDealIndex">Emp Deals</a>
-                        </li>
-                        <li class="nav-item">
                             <a class="nav-link text-light" asp-area="" asp-controller="Home" asp-action="Index">CONTACT US</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link text-light" asp-area="" asp-controller="Employee" asp-action="Employee_HomePage">EMPLOYEE LOG IN</a>
+                            <a class="nav-link text-light" asp-area="" asp-controller="Employee" asp-action="Employee_Login">EMPLOYEE LOG IN</a>
                         </li>
                     </ul>
                 </div>
@@ -56,102 +53,7 @@
             @RenderBody()
         </main>
     </div>
-    <!-- Footer referencing (https://mdbootstrap.com/docs/standard/navigation/footer/)-->
-    <footer class="bg-black text-center text-white" style="margin-bottom: -4em">
-        <!-- Grid container -->
-        <div class="container p-3">
 
-            <!-- Section: Social media -->
-            <section class="mb-4">
-                <!-- Facebook -->
-                <a class="btn btn-outline-dark btn-floating m-1" href="https://web.facebook.com/skytelmobile/?_rdc=1&_rdr" role="button">
-                    <img style="max-width: 1.5em" src="~/lib/Images/Facebook.jpg" />
-                </a>
-
-                <!-- Twitter -->
-                <a class="btn btn-outline-dark btn-floating m-1" href="https://twitter.com/MTNza" role="button">
-                    <img style="max-width: 1.5em" src="~/lib/Images/Twitter.png" />
-                </a>
-
-                <!-- Instagram -->
-                <a class="btn btn-outline-dark btn-floating m-1" href="https://www.instagram.com/mtnza/?hl=en" role="button">
-                    <img style="max-width: 1.5em" src="~/lib/Images/Instagram.png" />
-                </a>
-
-                <!-- Linkedin -->
-                <a class="btn btn-outline-dark btn-floating m-1" href="https://api.whatsapp.com/message/JEBWC3A5HCBKA1" role="button">
-                    <img style="max-width: 1.5em" src="~/lib/Images/Whatsapp.png" />
-                </a>
-            </section>
-            <!-- Section: Social media -->
-            <!-- Section: Form -->
-            <section class="">
-                <form action="">
-                    <!--Grid row-->
-                    <div class="row d-flex justify-content-center">
-                        <!--Grid column-->
-                        <div class="col-auto">
-                            <img style="max-width: 7em" class="" src="~/lib/Images/MTNLogo.png" />
-                        </div>
-                        <!--Grid column-->
-                        <!--Grid column-->
-                        <div class="col-md-5 col-12" style="padding-top: 2em">
-                            <!-- Email input -->
-                            <div class="form-outline form-white mb-4">
-                                <input type="email" id="form5Example21" class="form-control" />
-                                <label class="form-label" for="form5Example21" style="color: #ffcb0c">Email address</label>
-                            </div>
-                        </div>
-                        <!--Grid column-->
-                        <!--Grid column-->
-                        <div class="col-auto" style="padding-top: 2em">
-                            <!-- Submit button -->
-                            <button type="submit" class="btn btn-outline-light mb-4" style="color: #ffcb0c">
-                                Subscribe
-                            </button>
-                        </div>
-                        <!--Grid column-->
-                    </div>
-                    <!--Grid row-->
-                </form>
-            </section>
-            <!-- Section: Form -->
-            <!-- Section: Links -->
-            <section class="">
-                <!--Grid row-->
-                <div class="row" style="justify-content:center">
-                    <!--Grid column-->
-                    <div class="col-lg-3 col-md-6 mb-4 mb-md-0">
-                        <a href="https://www.mtn.co.za/home/help/content/terms-and-conditions" class="" style="color: #ffcb0c">Legal</a>
-                    </div>
-                    <!--Grid column-->
-                    <!--Grid column-->
-                    <div class="col-lg-3 col-md-6 mb-4 mb-md-0">
-                        <a href="https://www.mtn.co.za/home/help/content/privacy-policy" class="" style="color: #ffcb0c">Privacy Policy</a>
-                    </div>
-                    <!--Grid column-->
-                    <!--Grid column-->
-                    <div class="col-lg-3 col-md-6 mb-4 mb-md-0">
-                        <a href="https://www.mtn.co.za/home/terms-and-conditions/" class="" style="color: #ffcb0c">Terms & Conditions</a>
-                    </div>
-                    <!--Grid column-->
-                </div>
-                <!--Grid row-->
-            </section>
-            <!-- Section: Links -->
-        </div>
-        <p style="font-size: 0.7em; color: #ffcb0c">
-            MTN (PTY) LTD is an authorised Financial Service Provider, underwritten by Guardrisk Insurance Company. FSP license number: 44774
-        </p>
-        <!-- Grid container -->
-        <!-- Copyright -->
-        <div class="text-center p-3" style="background-color: rgba(0, 0, 0, 0.2);">
-            © 2022 SKYTEL:
-            <a class="text-white" href="#">Skytel.com</a>
-        </div>
-        <!-- Copyright -->
-    </footer>
-    <!-- Footer -->
     <script src="~/lib/jquery/dist/jquery.min.js"></script>
     <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
     <script src="~/js/site.js" asp-append-version="true"></script>

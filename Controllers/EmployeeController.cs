@@ -28,24 +28,24 @@ namespace XBCAD_WebApp.Controllers
             return View();
         }
 
-        [HttpPost]
-        public IActionResult Employee_Login([Bind] EmployeeModel EmpObj)
-        {
-            fbClient = new FireSharp.FirebaseClient(ifc);
-            FirebaseResponse response = fbClient.Get("users");
-            dynamic data = JsonConvert.DeserializeObject<dynamic>(response.Body);
-            var list = new List<EmployeeModel>();
-            foreach(var item in list)
-            {
-                if (EmpObj.Employee_Email.Equals(data.email))
-                {
+        //[HttpPost]
+        //public IActionResult Employee_Login([Bind] EmployeeModel EmpObj)
+        //{
+        //    fbClient = new FireSharp.FirebaseClient(ifc);
+        //    FirebaseResponse response = fbClient.Get("users");
+        //    dynamic data = JsonConvert.DeserializeObject<dynamic>(response.Body);
+        //    var list = new List<EmployeeModel>();
+        //    foreach(var item in list)
+        //    {
+        //        if (EmpObj.Employee_Email.Equals(data.email))
+        //        {
                     
-                }
+        //        }
 
-            }
+        //    }
 
-            return View();
-        }
+        //    return View();
+        //}
 
 
         [HttpGet] //sends and recieve data between the client and server using the web app
