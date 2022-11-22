@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using XBCAD_WebApp.Models;
 
 namespace XBCAD_WebApp.Controllers
 {
@@ -14,8 +15,21 @@ namespace XBCAD_WebApp.Controllers
             return View();
         }
 
-        public IActionResult PDFUpload()
+        [HttpPost]
+        [AutoValidateAntiforgeryToken]
+        public async IActionResult PDFUpload( PDF_Model pdf)
         {
+            if (ModelState.IsValid)
+            {
+                if (pdf.pdf_upload != null)
+                {
+                    string folder = "PDF/pdf/";
+                    //pdf.pdf_uploadUrl = await.
+                }
+                //pdf.pdf_upload(objcustInfo);
+                return RedirectToActionPermanent("Index");
+            }
+
             return View();
         }
 

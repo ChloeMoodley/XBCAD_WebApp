@@ -22,4 +22,8 @@
     <PackageReference Include="FireSharp" Version="2.0.4" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="PDF\pdf\" />
+  </ItemGroup>
+
 </Project>

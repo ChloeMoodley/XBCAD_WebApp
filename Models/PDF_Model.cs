@@ -13,6 +13,9 @@ namespace XBCAD_WebApp.Models
         [Required]
         public string pdf_upload { get; set; }
 
+        [Required]
+        public string pdf_uploadUrl { get; set; }
+
         public PDF_Model()
         {
 
