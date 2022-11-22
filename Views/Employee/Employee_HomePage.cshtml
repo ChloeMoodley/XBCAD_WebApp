@@ -1,0 +1,166 @@
+﻿@model EmployeeModel
+@{
+    ViewData["Title"] = "Employee_HomePage";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@*  (W3schools, 2021) and //(4. Continuation and close off, 2021) *@
+
+
+<head>
+    @*  (W3schools, 2021) and (Fontsawesome, 2017) *@
+    <meta charset="utf-8" />
+    @*<meta name="viewport" content="width=device-width, initial-scale=1.0" />*@
+    <link rel="stylesheet" href="~/css/site.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="path/to/font-awesome/css/font-awesome.min.css">
+
+    @*HTML Change Background Color (Simple How To Tutorial). 2021*@
+    <style>
+
+        h1 {
+            text-indent: 50px;
+            font-family: Bahnschrift;
+            color: #FFCB00;
+            font-weight: bold;
+            font-size: 70px;
+            padding-right: 0px;
+            padding-top: 5px;
+            float: left;
+            text-shadow: 2px 2px 4px #FFCB00;
+            text-decoration: underline;
+        }
+
+        h2 {
+            text-indent: 50px;
+            font-family: Bahnschrift;
+            color: #009DEA;
+            font-weight: bold;
+            font-size: 40px;
+            padding-right: 0px;
+            padding-top: 5px;
+            float: left;
+            text-align: center;
+            text-shadow: 2px 2px 4px black;
+            text-decoration: underline;
+        }
+
+        p {
+            padding-top: 30px;
+            color: black;
+            text-align: center;
+            font-style: oblique;
+            font-size: 15px;
+            float: left;
+            padding-left: 0px;
+            font-weight:bold;
+        }
+
+        
+        .column {
+            float: left;
+            width: 33.33%;
+            padding: 5px;
+        }
+
+        .row {
+            content: "";
+            clear: both;
+            display: table;
+        }
+
+    </style>
+</head>
+
+<html>
+    
+<body style="background-color:#FFCB00">
+    <div class="row">
+
+        <div class="column">
+            <img src="~/lib/Images/HomepageEmpBottomPic.png" style="width:1800px; height:50px; position:fixed; top:685px; right:0px" />
+        </div>
+
+        <div class="column">
+            <img src="~/lib/Images/empHomePage1.jpg" style="width:180px; height:600px; position:fixed; top:135px; right:1530px" />
+        </div>
+
+        <div class="column">
+            <img src="~/lib/Images/empHomePageMiddlePic.png" style="width:250px; height:150px; position:fixed; top:400px; right:50px" />
+        </div>
+
+
+        <div class="column" style="width:1800px; height:610px; position:fixed; top:140px; right:0px">
+            <div style="background-color: black; width:20%; height:20%; position:fixed; top:200px; left:240px">
+                <div style="background-color: #FFCB00; width:20%; height:20%; position:fixed; top:220px; left:260px">
+                    <div style="background-color: #009DEA; width:20%; height:20%; position:fixed; top:240px; left:280px">
+                        <h2 style="position:fixed; top:150px; left:1200px">EMPLOYEE HOMEPAGE</h2>
+                        <p style="position:fixed; top:260px; left:340px"> UPLOAD FRONT-PAGE CONTENT </p>
+
+                        
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="column" style="width:1800px; height:610px; position:fixed; top:140px; right:0px">
+            <div style="background-color: black; width:20%; height:20%; position:fixed; top:450px; left:240px">
+                <div style="background-color: #FFCB00; width:20%; height:20%; position:fixed; top:470px; left:260px">
+                    <div style="background-color: #009DEA; width:20%; height:20%; position:fixed; top:490px; left:280px">
+                        
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+        <div class="column" style="width:1800px; height:610px; position:fixed; top:140px; right:0px">
+            <div style="background-color: black; width:20%; height:20%; position:fixed; top:200px; left:840px">
+                <div style="background-color: #FFCB00; width:20%; height:20%; position:fixed; top:220px; left:860px">
+                    <div style="background-color: #009DEA; width:20%; height:20%; position:fixed; top:240px; left:880px">
+
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="column" style="width:1800px; height:610px; position:fixed; top:140px; right:0px">
+            <div style="background-color: black; width:20%; height:20%; position:fixed; top:450px; left:840px">
+                <div style="background-color: #FFCB00; width:20%; height:20%; position:fixed; top:470px; left:860px">
+                    <div style="background-color: #009DEA; width:20%; height:20%; position:fixed; top:490px; left:880px">
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <p style="position:fixed; top:250px; left:280px">Upload FAQ</p>
+
+        <p style="position:fixed; top:500px; left:280px">Yello Pages Upload</p>
+
+        <p style="position:fixed; top:500px; left:-310px">Upload a video</p>
+
+        <div class="form-group" style="position:absolute; top:330px; left:390px">
+            <a asp-controller="Deal" asp-action="EmpDealIndex" class="btn btn-primary" style="width:100px; height:50px">Go</a>
+        </div>
+
+        <div class="form-group" style="position:absolute; top:330px; left:990px">
+            <a asp-controller="FAQ" asp-action="EmpFAQIndex" class="btn btn-primary" style="width:100px; height:50px">Go</a>
+        </div>
+
+        <div class="form-group" style="position:absolute; top:580px; left:390px">
+            @*<a asp-controller="Deal" asp-action="EmpDealIndex" class="btn btn-primary" style="width:100px; height:50px">Go</a>*@
+        </div>
+
+        <div class="form-group" style="position:absolute; top:580px; left:990px">
+            <a asp-controller="PDF" asp-action="PDFUpload" class="btn btn-primary" style="width:100px; height:50px">Go</a>
+        </div>
+
+    </div>
+</body>
+</html>
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}

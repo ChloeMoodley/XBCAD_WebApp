@@ -1,0 +1,103 @@
+﻿@{
+    ViewData["Title"] = "PDF Display";
+}
+
+<head>
+    @*  (W3schools, 2021) and (Fontsawesome, 2017) *@
+    <meta charset="utf-8" />
+    @*<meta name="viewport" content="width=device-width, initial-scale=1.0" />*@
+    <link rel="stylesheet" href="~/css/site.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="path/to/font-awesome/css/font-awesome.min.css">
+
+    @*HTML Change Background Color (Simple How To Tutorial). 2021*@
+    <style>
+
+        h1 {
+            text-indent: 50px;
+            font-family: Bahnschrift;
+            color: #FFCB00;
+            font-weight: bold;
+            font-size: 70px;
+            padding-right: 0px;
+            padding-top: 5px;
+            float: left;
+            text-shadow: 2px 2px 4px #FFCB00;
+            text-decoration: underline;
+        }
+
+        h2 {
+            text-indent: 50px;
+            font-family: Bahnschrift;
+            color: #009DEA;
+            font-weight: bold;
+            font-size: 40px;
+            padding-right: 0px;
+            padding-top: 5px;
+            float: left;
+            text-align: center;
+            text-shadow: 2px 2px 4px #009DEA;
+            text-decoration: underline;
+        }
+
+        p {
+            padding-top: 30px;
+            font-family: Bahnschrift;
+            color: #EAD6A8;
+            text-align: center;
+            font-style: oblique;
+            font-size: 25px;
+            float: left;
+            padding-left: 0px;
+        }
+
+        a.CV {
+            padding-top: 58px;
+            font-weight: bold;
+            font-family: Bahnschrift;
+            color: #EAD6A8;
+            font-size: 30px;
+            float: right;
+            padding-right: 0px;
+        }
+
+        .column {
+            float: left;
+            width: 33.33%;
+            padding: 5px;
+        }
+
+        .row {
+            content: "";
+            clear: both;
+            display: table;
+        }
+
+    </style>
+</head>
+
+<body>
+    <div class="row">
+        <div class="column">
+            <embed src="https://www.mtn.co.za/SiteCollectionDocuments/YelloTrader/YelloTrader-NovB-2022.pdf" style="width: 800px; height: 590px; position: absolute; left: -20px; top:140px" />
+        </div>
+
+        <div class="column" style="position: absolute; top: 200px; left: 920px">
+            <h2>
+                LOOK AT MTN’S MONTHLY DEALS ON THE
+            </h2>
+        </div>
+
+        <div class="column" style="position: absolute; top: 420px; left: 900px; width: 40%">
+            <h1>
+                YELLOW TRADER
+            </h1>
+        </div>
+    </div>
+</body>
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}
