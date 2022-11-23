@@ -5,18 +5,21 @@ namespace XBCAD_WebApp.Models
 {
     public class PDF_Model
     {
-        public string? pdf_id { get; set; }
+        public int pdf_id { get; set; } = 0;
 
         [Required]
-        public string pdf_description { get; set; }
+        public string pdf_name { get; set; } = "";
 
         [Required]
-        public string pdf_upload { get; set; }
+        public string pdf_path { get; set; } = "";
+
 
         [Required]
         public string pdf_uploadUrl { get; set; }
 
-        public PDF_Model()
+        public List<PDF_Model> Files { get; set; } = new List<PDF_Model>();
+
+/*        public PDF_Model()
         {
 
         }
@@ -25,6 +28,6 @@ namespace XBCAD_WebApp.Models
         {
             this.pdf_description = description;
             this.pdf_upload = image;
-        }
+        }*/
     }
 }
