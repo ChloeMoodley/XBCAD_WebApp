@@ -2,9 +2,8 @@
 
 namespace XBCAD_WebApp.Models
 {
-    public class Message
+    public class ViewMessage
     {
-        [Key]
         public int Id { get; set; }
         [Required]
         public string Name { get; set; }
@@ -13,17 +12,13 @@ namespace XBCAD_WebApp.Models
 
         public double ContactDetails { get; set; }
 
-        public string Other { get;set; }
-
-
-       // public DateTime DatePosted { get; set; }
-
-        public Message()
+        public string Other { get; set; }
+        public ViewMessage()
         {
 
         }
 
-        public Message(string Name, string ProblemDescriptionQuestion, double ContactDetails, string Other )
+        public ViewMessage(string Name, string ProblemDescriptionQuestion, double ContactDetails, string Other)
         {
             this.Name = Name;
             this.ProblemDescriptionQuestion = ProblemDescriptionQuestion;

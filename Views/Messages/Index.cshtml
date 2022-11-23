@@ -8,19 +8,30 @@
             form {
                
                 background-color: yellow;
-                
+                padding: 70px;
             }
 
         button {
             background-color: black;
-            width: 100%;
+            width: 40%;
             color: white;
             padding: 10px;
-            margin: 10px 0px;
+            margin: 20px 70px;
             border: none;
             cursor: pointer;
+            border-radius: 9px;
         }
 
+        .SUBMIT {
+            background-color: black;
+            width: 40%;
+            color: white;
+            padding: 10px;
+            margin: 20px 70px;
+            border: none;
+            cursor: pointer;
+            border-radius: 9px;
+        }
        
 
 
@@ -28,24 +39,31 @@
 </head>
 <body>
 
-    <form>
+    <form asp-action="Create">
+        
 
         <p1><u><strong>ENTER THE FOLLOWING DETAILS</strong></u></p1>
 
         <p></p>
-        Username:<p>
-        <input type="text" name="Name" style="width:600px">
+        
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+        Name:<p>
+        <input type="text" name="Name" style="width:700px">
         </p>
-        Problem:<p>
-            <input type="text" name="Problem Description/Question:" style="width:600px">
+        Problem Description/Question:<p>
+            <input type="text" name="Problem/Description:" style="width:700px">
         </p>
         Contact:<p>
-            <input type="text" name="Contact Details" style="width:600px">
+            <input type="text" name="Contact Details" style="width:700px">
         </p>
         Other:<p>
-            <input type="text" name="Other" style="width:600px">
+            <input type="text" name="Other" style="width:700px">
         </p>
-        <button type="button" class="submitbtn"> Submit</button>
+       
+        <div class="form-group">
+            <input type="submit" value="SUBMIT" class="btn btn-primary" />
+            <a asp-action="Index" class="btn btn-warning">Back to message</a>
+        </div>
     </form>
 
 </body>

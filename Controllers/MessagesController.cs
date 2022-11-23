@@ -3,15 +3,30 @@ using System.Linq;
 using System.Web;
 using XBCAD_WebApp.Models;
 using System;
+using FireSharp.Config;
+using FireSharp.Response;
 
 using PagedList;
 using PagedList.Mvc;
 using XBCAD_WebApp.Models.ViewModels;
+using FireSharp.Response;
+using Newtonsoft.Json.Linq;
+using Newtonsoft.Json;
+using System.Net;
+using FireSharp.Interfaces;
+
 
 namespace XBCAD_WebApp.Controllers
 {
     public class MessagesController : Controller
     {
+        IFirebaseConfig ifc = new FirebaseConfig()
+        {
+            //AuthSecret = "2yHHLIYJd7mITvNBUV7cq3HVc9ItUv4nkmABbI4m",
+            BasePath = "https://skytell-fbdb-default-rtdb.europe-west1.firebasedatabase.app/"
+        };
+        IFirebaseClient fbClient;
+
 
         public IActionResult Index()
         {
@@ -56,6 +71,44 @@ namespace XBCAD_WebApp.Controllers
 
 
             return View();
+
+        }
+        [HttpGet]
+        public IActionResult Create()
+        {
+            return View();
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public IActionResult Create([Bind] FAQModel faqObj)
+        {
+
+            try
+            {
+                fbClient = new FireSharp.FirebaseClient(ifc);
+                var data = faqObj;
+                PushResponse response = fbClient.Push("WebMessages/", data);
+                data.id = response.Result.name;
+                SetResponse setResponse = fbClient.Set("WebMessages/" + data.id, data);
+
+                if (setResponse.StatusCode == System.Net.HttpStatusCode.OK)
+                {
+                    ModelState.AddModelError(string.Empty, "Added Succesfully");
+                }
+                else
+                {
+                    ModelState.AddModelError(string.Empty, "Something went wrong!!");
+                }
+            }
+            catch (Exception ex)
+            {
+
+                ModelState.AddModelError(string.Empty, ex.Message);
+            }
+
+            return RedirectToAction("EmpFAQIndex");
+
         }
 
     }

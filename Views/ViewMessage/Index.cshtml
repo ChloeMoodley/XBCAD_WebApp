@@ -1,0 +1,36 @@
+﻿@model IEnumerable<XBCAD_WebApp.Models.ViewMessage>
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1 class="text-center" style="color:#ffcb0c;">View Message from User</h1>
+
+
+@*For the display of the employee info*@
+
+<table class="table table-hover">
+    <thead>
+        <tr>
+            @*<th style="color:#ffcb0c; font-size:2em">Id</th>*@
+            <th style="color:#ffcb0c; font-size:2em">Name</th>
+            <th style="color:#ffcb0c; font-size:2em">Description/Question</th>
+            <th style="color:#ffcb0c; font-size:2em">Contact Details</th>
+            <th style="color:#ffcb0c; font-size:2em">Other</th>
+        </tr>
+    </thead>
+    </table>
+
+
+    @*<tbody>
+        @foreach (var b in Model)
+        {
+            <tr class="shadow">
+                <td style="font-size:1.3em; background-color: #ffcb0c">@Html.DisplayFor(modelItem => b.Name)</td>
+                <td style="font-size:1.3em; background-color: dodgerblue">@Html.DisplayFor(modelItem => b.ProblemDescriptionQuestion)</td>
+                <td style="font-size:1.3em; background-color: #ffcb0c">@Html.DisplayFor(modelItem => b.ContactDetails)</td>
+
+            </tr>
+        }
+    </tbody>
+</table>*@
