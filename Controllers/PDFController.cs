@@ -1,6 +1,8 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using FireSharp.Response;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Hosting.Internal;
 using System.IO;
+using System.Net;
 using XBCAD_WebApp.Models;
 
 
@@ -50,13 +52,14 @@ namespace XBCAD_WebApp.Controllers
         [HttpPost]
         public IActionResult PDFUpload(IFormFile file, [FromServices] Microsoft.AspNetCore.Hosting.IHostingEnvironment hostingEnvironment)
         {
+
             //Crude solution to delete any existing files within the path to prevent duplicates
             DirectoryInfo dir = new DirectoryInfo($"{hostingEnvironment.WebRootPath}\\files\\");
             foreach (FileInfo fi in dir.GetFiles())
             {
                 fi.Delete();
             }
-
+            
 
             string fileName = $"{hostingEnvironment.WebRootPath}\\files\\{file.FileName}";
             
@@ -83,6 +86,22 @@ namespace XBCAD_WebApp.Controllers
 
             return File(System.IO.File.ReadAllBytes(filePath), "application/pdf");
           
+        }
+
+        //Controller method to Delete a Deal
+        //Referencing: https://www.freecodespot.com/blog/dotnet-core-crud-with-firebase-database/
+        public ActionResult Delete(string name)
+        {
+
+            //Crude solution to delete any existing files within the path to prevent duplicates
+            DirectoryInfo dir = new DirectoryInfo($"{_hostingEnvironment.WebRootPath}\\files\\");
+            foreach (FileInfo fi in dir.GetFiles())
+            {
+                fi.Delete();
+            }
+
+
+            return RedirectToAction("PDFUpload");
         }
 
         /* [HttpPost]
