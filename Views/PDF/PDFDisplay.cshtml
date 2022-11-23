@@ -79,16 +79,21 @@
     </style>
 </head>
 
+
+@if (Model != null)
+{
+
+    @foreach (PDF_Model file in Model.Files)
+    {
+      
+    <a href="../PDF/PDFUpload?fileName=@file.pdf_name" style="margin-right:10px;">@file.pdf_name</a>
+    <a href="../PDF/PDFDisplay?fileName=@file.pdf_name" style="margin-right:10px;" target="_blank">@file.pdf_name</a>
+    }
+}
+
 <body>
     <div class="row">
-        <div style="position: absolute; top: 0px; left: 0px"">
-            @foreach (PDF_Model file in Model.Files)
-            {      
-                <a href="../PDF/PDFUpload?fileName=@file.pdf_name" style="margin-right:10px;">@file.pdf_name</a>
-                <a href="../PDF/PDFDisplay?fileName=@file.pdf_name" style="margin-right:10px;" target="_blank">@file.pdf_name</a>
-            }
-        </div>
-            
+        
         <div class="column">
             <embed id="embedPDF" src="~/files/@Model.pdf_name" style="width: 800px; height: 590px; position: absolute; left: -20px; top:140px" />
         </div>
@@ -106,6 +111,10 @@
         </div>
     </div>
 </body>
+
+@*<br />
+<br />
+<embed id="embedPDF" src="~/files/@Model.pdf_name" style="width:500px, height:500px;" />*@
 
 @section Scripts {
     @{
