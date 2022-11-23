@@ -1,9 +1,12 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using Microsoft.Extensions.Hosting.Internal;
+using System.IO;
 using XBCAD_WebApp.Models;
 
 
 namespace XBCAD_WebApp.Controllers
 {
+
     public class PDFController : Controller
     {
         public IFormFile file;
@@ -28,6 +31,8 @@ namespace XBCAD_WebApp.Controllers
 
             string path = $"{_hostingEnvironment.WebRootPath}\\files\\";
 
+            
+
             int nId = 1;
 
             foreach (string pdfPath in Directory.EnumerateFiles(path, "*.pdf"))
@@ -45,7 +50,18 @@ namespace XBCAD_WebApp.Controllers
         [HttpPost]
         public IActionResult PDFUpload(IFormFile file, [FromServices] Microsoft.AspNetCore.Hosting.IHostingEnvironment hostingEnvironment)
         {
+            //Crude solution to delete any existing files within the path to prevent duplicates
+            DirectoryInfo dir = new DirectoryInfo($"{hostingEnvironment.WebRootPath}\\files\\");
+            foreach (FileInfo fi in dir.GetFiles())
+            {
+                fi.Delete();
+            }
+
+
             string fileName = $"{hostingEnvironment.WebRootPath}\\files\\{file.FileName}";
+            
+            
+
             using (FileStream fileStream = System.IO.File.Create(fileName))
             {
                 file.CopyTo(fileStream);
@@ -58,9 +74,14 @@ namespace XBCAD_WebApp.Controllers
 
         public IActionResult PDFDisplay(string fileName)
         {
+            
+            string path = _hostingEnvironment.WebRootPath + "\\files\\";
+            string[] fileEntries = Directory.GetFiles(path);
+            fileName = fileEntries.First();
+            string filePath = fileEntries.First();
+           // path += fileName;
 
-            string path = _hostingEnvironment.WebRootPath + "\\files\\" + fileName;
-            return File(System.IO.File.ReadAllBytes(path), "application/pdf");
+            return File(System.IO.File.ReadAllBytes(filePath), "application/pdf");
           
         }
 
