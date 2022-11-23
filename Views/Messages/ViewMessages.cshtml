@@ -1,0 +1,75 @@
+﻿@*@model IEnumerable<XBCAD_WebApp.Models.ViewMessage>
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1 class="text-center" style="color:#ffcb0c;">View Message from User</h1>
+
+
+@*For the display of the employee info
+
+<table class="table table-hover">
+    <thead>
+        <tr>
+            @*<th style="color:#ffcb0c; font-size:2em">Id</th>
+            <th style="color:#ffcb0c; font-size:2em">Name</th>
+            <th style="color:#ffcb0c; font-size:2em">Description/Question</th>
+            <th style="color:#ffcb0c; font-size:2em">Contact Details</th>
+            <th style="color:#ffcb0c; font-size:2em">Other</th>
+        </tr>
+    </thead>
+</table>
+
+
+    <tbody>
+        @foreach (var b in Model)
+        {
+            <tr class="shadow">
+                <td style="font-size:1.3em; background-color: #ffcb0c">@Html.DisplayFor(modelItem => b.Name)</td>
+                <td style="font-size:1.3em; background-color: dodgerblue">@Html.DisplayFor(modelItem => b.ProblemDescriptionQuestion)</td>
+                <td style="font-size:1.3em; background-color: #ffcb0c">@Html.DisplayFor(modelItem => b.ContactDetails)</td>
+
+            </tr>
+        }
+    </tbody>
+</table>
+*@
+
+
+@model IEnumerable<XBCAD_WebApp.Models.Message>
+@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+}
+
+<h1 class="text-center">Message if there is a problem</h1>
+
+<p class="text-center">
+    <a asp-action="UploadMessage" class="btn btn-primary text-center">Upload a message</a>
+</p>
+
+<div class="row overflow-scroll flex-xl-nowrap">
+    @foreach (var deal in Model)
+    {
+        <div class="col-sm-5">
+            <div class="card bg-warning">
+                <div class="row no-gutters">
+                    <div class="col-auto">
+                        <img class="card-img-top" src="~/lib/Images/Skytel_pic1.png" alt="Card image cap">
+                    </div>
+                    <div class="col">
+                        <div class="card-body">
+                            <h5 class="card-title">@Html.DisplayFor(modelItem => deal.Name)</h5>
+                            <p class="card-text">@Html.DisplayFor(modelItem => deal.ProblemDescriptionQuestion)</p>
+                            <p class="card-text">@Html.DisplayFor(modelItem => deal.ContactDetails)</p>
+                            <p class="card-text">@Html.DisplayFor(modelItem => deal.Other)</p>
+                        </div>
+                    </div>
+                </div>
+                <a asp-action="Delete" asp-route-id="@deal.Id" class="btn btn-danger">Delete</a>
+            </div>
+        </div>
+    }
+</div>

@@ -20,6 +20,8 @@ namespace XBCAD_WebApp.Controllers
 {
     public class MessagesController : Controller
     {
+        //Init of config, used to configure FireBase client with the path
+        //Referencing: https://www.freecodespot.com/blog/dotnet-core-crud-with-firebase-database/
         IFirebaseConfig ifc = new FirebaseConfig()
         {
             //AuthSecret = "2yHHLIYJd7mITvNBUV7cq3HVc9ItUv4nkmABbI4m",
@@ -27,8 +29,20 @@ namespace XBCAD_WebApp.Controllers
         };
         IFirebaseClient fbClient;
 
+/*        IFirebaseConfig ifc = new FirebaseConfig()
+        {
+            //AuthSecret = "2yHHLIYJd7mITvNBUV7cq3HVc9ItUv4nkmABbI4m",
+            BasePath = "https://skytell-fbdb-default-rtdb.europe-west1.firebasedatabase.app/"
+        };
+        IFirebaseClient fbClient;*/
 
-        public IActionResult Index()
+        [HttpGet]
+        public IActionResult ViewMessages()
+        {
+            return View();
+        }
+
+/*        public IActionResult Index()
         {
             //int pageSize = 5;
             //int pageNumber = (page ?? 1);
@@ -70,18 +84,18 @@ namespace XBCAD_WebApp.Controllers
             //    ViewBag.MessageId = Id.Value;
 
 
-            return View();
+            return View();*/
 
-        }
+        //}
         [HttpGet]
-        public IActionResult Create()
+        public IActionResult UploadMessage()
         {
             return View();
         }
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public IActionResult Create([Bind] FAQModel faqObj)
+        public IActionResult UploadMessage([Bind] Message faqObj)
         {
 
             try
@@ -89,8 +103,8 @@ namespace XBCAD_WebApp.Controllers
                 fbClient = new FireSharp.FirebaseClient(ifc);
                 var data = faqObj;
                 PushResponse response = fbClient.Push("WebMessages/", data);
-                data.id = response.Result.name;
-                SetResponse setResponse = fbClient.Set("WebMessages/" + data.id, data);
+                data.Id = response.Result.name;
+                SetResponse setResponse = fbClient.Set("WebMessages/" + data.Id, data);
 
                 if (setResponse.StatusCode == System.Net.HttpStatusCode.OK)
                 {
@@ -107,8 +121,18 @@ namespace XBCAD_WebApp.Controllers
                 ModelState.AddModelError(string.Empty, ex.Message);
             }
 
-            return RedirectToAction("EmpFAQIndex");
+            //return RedirectToAction("Index");
+            return View();
 
+        }
+
+        //Controller method to Delete a Deal
+        //Referencing: https://www.freecodespot.com/blog/dotnet-core-crud-with-firebase-database/
+        public ActionResult Delete(string id)
+        {
+            fbClient = new FireSharp.FirebaseClient(ifc);
+            FirebaseResponse response = fbClient.Delete("WebDeals/" + id);
+            return RedirectToAction("Employee_HomePage");
         }
 
     }

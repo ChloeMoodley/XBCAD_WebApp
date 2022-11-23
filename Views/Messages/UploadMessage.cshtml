@@ -1,0 +1,112 @@
+﻿@*
+<html>
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <style>
+
+            form {
+               
+                background-color: yellow;
+                padding: 70px;
+            }
+
+        button {
+            background-color: black;
+            width: 40%;
+            color: white;
+            padding: 10px;
+            margin: 20px 70px;
+            border: none;
+            cursor: pointer;
+            border-radius: 9px;
+        }
+
+        .SUBMIT {
+            background-color: black;
+            width: 40%;
+            color: white;
+            padding: 10px;
+            margin: 20px 70px;
+            border: none;
+            cursor: pointer;
+            border-radius: 9px;
+        }
+       
+
+
+        </style>
+</head>
+<body>
+
+    <form asp-action="Create">
+        
+
+        <p1><u><strong>ENTER THE FOLLOWING DETAILS</strong></u></p1>
+
+        <p></p>
+        
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+        Name:<p>
+        <input type="text" name="Name" style="width:700px">
+        </p>
+        Problem Description/Question:<p>
+            <input type="text" name="Problem/Description:" style="width:700px">
+        </p>
+        Contact:<p>
+            <input type="text" name="Contact Details" style="width:700px">
+        </p>
+        Other:<p>
+            <input type="text" name="Other" style="width:700px">
+        </p>
+       
+        <div class="form-group">
+            <input type="submit" value="SUBMIT" class="btn btn-primary" />
+        </div>
+    </form>
+
+</body>
+</html>*@
+           
+@model XBCAD_WebApp.Models.Message
+
+@{
+    ViewData["Title"] = "UploadMessage";
+}
+
+
+<h1 style="text-underline-position:auto">Upload Message Here:</h1>
+
+<hr />
+<div class"row">
+    <div class="col-md-4">
+        <form asp-action="UploadMessage">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="Name" class="control-label"></label>
+                <input asp-for="Name" class="form-control" />
+                <span asp-validation-for="Name" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="ProblemDescriptionQuestion" class="control-label"></label>
+                <input asp-for="ProblemDescriptionQuestion" class="form-control" />
+                <span asp-validation-for="ProblemDescriptionQuestion" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="ContactDetails" class="control-label"></label>
+                <input asp-for="ContactDetails" class="form-control" />
+                <span asp-validation-for="ContactDetails" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Other" class="control-label"></label>
+                <input asp-for="Other" class="form-control" />
+                <span asp-validation-for="Other" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="SEND" class="btn btn-primary" />
+                <a asp-action="Index" class="btn btn-warning">Back to Deal List</a>
+            </div>
+        </form>
+    </div>
+</div>
+
