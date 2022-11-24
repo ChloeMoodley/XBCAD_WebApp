@@ -80,48 +80,47 @@
     </style>
 </head>
 
-@*  (W3schools, 2021) and //(4. Continuation and close off, 2021) *@
+@*  (W3schools, 2021) and //(4. Continuation and close offs, 2021) *@
 
 <html>
-<body style="background-color: white">
-        <div class="row">
-            <div class="column" style="position: absolute; top:140px; left:0px; width: 50%; height:60%">
-                <div style="background-color: #009DEA; width: 100%; height:70%">
-                    
-                </div>
+<body style="background-color: #009DEA">
+    <div class="row">
+        <div class="column" style="position: absolute; top:140px; left:0px; width: 50%; height:60%">
+            <div style="background-color: #009DEA; width: 100%; height:70%">
             </div>
+        </div>
 
-            <div class="column" style="position: absolute; left:230px;top:150px; width: 50%; height:60%">
-                <h2>ABOUT US</h2>
-            </div>
+        <div class="column" style="position: absolute; left:230px;top:150px; width: 50%; height:60%">
+            <h2>ABOUT US</h2>
+        </div>
 
         <div class="column" style="position: absolute; left:50px;top:250px; width: 40%; height:60%">
-            <p style="color:white; font-size:18px">SkyTel Mobile is a cell phone company that sells MTN products and services such as mobile devices, Tablets, contracts, accessories and more. 
-                We strive for customer satisfaction and care about our customer’s wants.</p>
+            <p style="color:white; font-size:18px">
+                SkyTel Mobile is a cell phone company that sells MTN products and services such as mobile devices, Tablets, contracts, accessories and more.
+                We strive for customer satisfaction and care about our customer’s wants.
+            </p>
         </div>
 
-        <div class="column" style="position: absolute; left:20px;top:430px; width: 0%; height:0%">
-            <embed width="700" height="270"
-                    src="https://www.youtube.com/watch?v=MTQQ9mlz3t8"/>
-            
-        </div>
+        <div class="column" style="position: absolute; left:50px;top:430px; width: 0%; height:0%">
 
-        <div class="column" style="position: absolute; left:790px;top:150px; width: 0%; height:0%">
-            <img width="700" height="250" src="~/lib/images/aboutuspic.png" />
+            <iframe width="660" height="315" src="https://www.youtube.com/embed/MTQQ9mlz3t8" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
         </div>
-            
-        </div>
+    </div>
 
-        <div class="row">
+    <div class="column" style="position: absolute; left:790px;top:150px; width: 0%; height:0%">
+        <img width="700" height="250" src="~/lib/images/aboutuspic.png" />
+    </div>
+
+    </div>
+
+    <div class="row">
         <div class="column" style="position: absolute; left:450px; width: 50%; height:60%">
+        </div>
 
+        <div class="column" style="position: absolute; left:745px; top:400px; width: 50%; height:60%">
+            <div style="background-color: #009DEA; width: 101%; height:70%">
             </div>
-
-            <div class="column" style="position: absolute; left:745px; top:400px; width: 50%; height:60%">
-                <div style="background-color: #009DEA; width: 101%; height:70%">
-
-                </div>
-            </div>
+        </div>
 
         <div class="column" style="position: absolute; left:1050px;top:500px">
             <h2>BUSINESS HOURS</h2>
@@ -129,45 +128,45 @@
 
         <div class="column" style="position: absolute; left:790px;top:400px">
             <p style="color:white; font-size:18px">
-                MONDAY			            8:00 AM – 5:00PM
+                MONDAY                          8:00 AM – 5:00PM
             </p>
         </div>
         <div class="column" style="position: absolute; left:790px;top:430px">
             <p style="color:white; font-size:18px">
-                TUESDAY			            8:00 AM – 5:00PM
+                TUESDAY                         8:00 AM – 5:00PM
             </p>
         </div>
         <div class="column" style="position: absolute; left:790px;top:460px">
             <p style="color:white; font-size:18px">
-                WEDNESDAY			        8:00 AM – 5:00PM
+                WEDNESDAY                         8:00 AM – 5:00PM
             </p>
         </div>
         <div class="column" style="position: absolute; left:790px;top:490px">
             <p style="color:white; font-size:18px">
-                THURSDAY			        8:00 AM – 5:00PM
+                THURSDAY                          8:00 AM – 5:00PM
             </p>
         </div>
         <div class="column" style="position: absolute; left:790px;top:520px">
             <p style="color:white; font-size:18px">
-                FRIDAY			            8:00 AM – 5:00PM
+                FRIDAY                          8:00 AM – 5:00PM
             </p>
         </div>
         <div class="column" style="position: absolute; left:790px;top:550px">
             <p style="color:white; font-size:18px">
-                SATURDAY			        8:00 AM – 13:00PM
+                SATURDAY                          8:00 AM – 13:00PM
             </p>
         </div>
-        <div class="column" style="position: absolute; left:810px;top:580px">
+        <div class="column" style="position: absolute; left:790px;top:580px">
             <p style="color:white; font-size:18px">
-                SUNDAY			            CLOSED
+                SUNDAY                          CLOSED
             </p>
         </div>
-        <div class="column" style="position: absolute; left:810px;top:610px">
+        <div class="column" style="position: absolute; left:790px;top:610px">
             <p style="color:white; font-size:18px">
-                HOILDAYS			        CLOSED
+                PUBLIC HOLIDAYS                          CLOSED
             </p>
         </div>
-        </div>
+    </div>
 </body>
 </html>
 
@@ -175,5 +174,4 @@
     @{
         await Html.RenderPartialAsync("_ValidationScriptsPartial");
     }
-}
-
+    }
