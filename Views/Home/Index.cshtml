@@ -11,14 +11,14 @@
     @foreach (var deal in Model)
     {
         <div class="col-sm-5">
-            <div class="card bg-warning shadow">
+            <div class="card bg-warning shadow justify-content-center" style="width: 27rem; height: 17rem">
                 <div class="row no-gutters">
                     <div class="col-auto">
                         <img class="card-img-top" src="~/lib/Images/Skytel_pic1.png" alt="Card image cap">
                     </div>
                     <div class="col">
                         <div class="card-body">
-                            <h5 class="card-title">@Html.DisplayFor(modelItem => deal.Title)</h5>
+                            <h3 class="card-title">@Html.DisplayFor(modelItem => deal.Title)</h3>
                             <p class="card-text">@Html.DisplayFor(modelItem => deal.Description)</p>
                         </div>
                     </div>
@@ -87,6 +87,15 @@
                 </div>
             </div>
         </div>
+        
+        <div class="col-sm-4">
+            <div class="card" style="width: 19rem; height:0rem; border:hidden">
+                <div class="card-body">
+
+                </div>
+            </div>
+        </div>
+
         <div class="col-sm-4">
             <div class="card bg-warning shadow" style="width: 19rem;">
                 <div class="card-body">
@@ -97,9 +106,6 @@
                     <p href="#" class="card-text">083869XXXX (tbc)</p>
                 </div>
             </div>
-        </div>
-        <div class="col-sm-4">
-            
         </div>
 
     </div>

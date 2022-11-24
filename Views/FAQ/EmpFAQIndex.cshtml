@@ -23,8 +23,8 @@
         @foreach (var q in Model)
         {
             <tr>
-                <td>@Html.DisplayFor(modelItem => q.Question)</td>
-                <td>@Html.DisplayFor(modelItem => q.Answer)</td>
+                <td style="font-size:1.0em; background-color: #ffcb0c">@Html.DisplayFor(modelItem => q.Question)</td>
+                <td style="font-size:1.0em; background-color: dodgerblue; color: white">@Html.DisplayFor(modelItem => q.Answer)</td>
                 <td>
                     <a asp-action="Edit" asp-route-id="@q.id" class="btn btn-warning">Edit</a>
                     <a asp-action="Delete" asp-route-id="@q.id" class="btn btn-danger">Delete</a>
