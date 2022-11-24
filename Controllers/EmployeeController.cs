@@ -4,6 +4,7 @@ using FireSharp.Response;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Win32;
 using Newtonsoft.Json;
+using Newtonsoft.Json.Linq;
 using System.Net;
 using XBCAD_WebApp.Models;
 
@@ -25,32 +26,47 @@ namespace XBCAD_WebApp.Controllers
         [HttpGet] //sends and recieve data between the client and server using the web app
         public IActionResult Employee_Login()  //makes the html code visible on the web pages as it returns the view
         {
+            System.Diagnostics.Debug.WriteLine("In Login");
             return View();
         }
 
         [HttpPost]
         public IActionResult Employee_Login([Bind] EmployeeModel EmpObj)
         {
+            List<EmployeeModel> empList = new List<EmployeeModel>();
+
             fbClient = new FireSharp.FirebaseClient(ifc);
             FirebaseResponse response = fbClient.Get("Users");
             dynamic data = JsonConvert.DeserializeObject<dynamic>(response.Body);
 
+            System.Diagnostics.Debug.WriteLine("Item found");
+
             if (data != null)
             {
+                
                 foreach (var item in data)
                 {
-                    if (EmpObj.Employee_Email.Equals(item))
-                    {
-                        return RedirectToAction("Employee_HomePage");
-                    }
-                    else
-                    {
-                        return RedirectToAction("Employee_Login");
-                    }
+
+                    empList.Add(JsonConvert.DeserializeObject<EmployeeModel>(((JProperty)item).Value.ToString()));
+
                 }
             }
 
-            return View();
+            if (empList.Count != 0)
+            {
+                System.Diagnostics.Debug.WriteLine(empList.Count());
+
+                foreach (var item in empList)
+                {
+
+                    if (EmpObj.email.Equals(item.email) && EmpObj.password.Equals(item.password))
+                    {
+                        return RedirectToAction("Employee_HomePage"); ;
+                    }   
+                }
+            }
+            
+            return RedirectToAction("Employee_Login");
         }
 
 
