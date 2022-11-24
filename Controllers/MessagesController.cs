@@ -29,17 +29,25 @@ namespace XBCAD_WebApp.Controllers
         };
         IFirebaseClient fbClient;
 
-/*        IFirebaseConfig ifc = new FirebaseConfig()
-        {
-            //AuthSecret = "2yHHLIYJd7mITvNBUV7cq3HVc9ItUv4nkmABbI4m",
-            BasePath = "https://skytell-fbdb-default-rtdb.europe-west1.firebasedatabase.app/"
-        };
-        IFirebaseClient fbClient;*/
-
         [HttpGet]
         public IActionResult ViewMessages()
         {
-            return View();
+            //Get All Deals from the database
+            List<Message> MessageList = new List<Message>();
+
+            fbClient = new FireSharp.FirebaseClient(ifc);
+            FirebaseResponse response = fbClient.Get("WebMessages/");
+            dynamic data = JsonConvert.DeserializeObject<dynamic>(response.Body);
+
+            if (data != null)
+            {
+                foreach (var item in data)
+                {
+                    MessageList.Add(JsonConvert.DeserializeObject<Message>(((JProperty)item).Value.ToString()));
+                }
+            }
+
+            return View(MessageList);
         }
 
 /*        public IActionResult Index()
@@ -131,8 +139,8 @@ namespace XBCAD_WebApp.Controllers
         public ActionResult Delete(string id)
         {
             fbClient = new FireSharp.FirebaseClient(ifc);
-            FirebaseResponse response = fbClient.Delete("WebDeals/" + id);
-            return RedirectToAction("Employee_HomePage");
+            FirebaseResponse response = fbClient.Delete("WebMessages/" + id);
+            return RedirectToAction("Employee_HomePage", "Employee");
         }
 
     }
