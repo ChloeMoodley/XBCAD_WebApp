@@ -138,8 +138,7 @@ namespace XBCAD_WebApp.Controllers
         {
             fbClient = new FireSharp.FirebaseClient(ifc);
             FirebaseResponse response = fbClient.Delete("WebMessages/" + id);
-            //return RedirectToAction("Employee_HomePage", "Employee");
-            return View();
+            return RedirectToAction("ViewMessages", "Messages");
         }
 
     }
