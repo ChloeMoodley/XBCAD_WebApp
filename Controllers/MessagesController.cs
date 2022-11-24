@@ -105,7 +105,6 @@ namespace XBCAD_WebApp.Controllers
         [ValidateAntiForgeryToken]
         public IActionResult UploadMessage([Bind] Message faqObj)
         {
-
             try
             {
                 fbClient = new FireSharp.FirebaseClient(ifc);
@@ -129,9 +128,8 @@ namespace XBCAD_WebApp.Controllers
                 ModelState.AddModelError(string.Empty, ex.Message);
             }
 
-            //return RedirectToAction("Index");
+            //return RedirectToAction("EmpDealIndex");
             return View();
-
         }
 
         //Controller method to Delete a Deal
