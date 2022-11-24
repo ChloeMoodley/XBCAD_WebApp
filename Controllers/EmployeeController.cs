@@ -62,7 +62,7 @@ namespace XBCAD_WebApp.Controllers
                 {
                     HttpContext.Session.SetString("_UserToken", token);
 
-                    return RedirectToAction("Index");
+                    return RedirectToAction("Employee_HomePage");
                 }
                 else
                 {
