@@ -18,8 +18,8 @@ namespace XBCAD_WebApp.Models
 
         public EmployeeModel(string employee_Password, string employee_Email)
         {
-            Employee_Password = employee_Password;
-            Employee_Email = employee_Email;
+            password = employee_Password;
+            email = employee_Email;
         }
 
     }

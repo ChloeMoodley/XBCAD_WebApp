@@ -58,19 +58,19 @@ namespace XBCAD_WebApp.Controllers
             FirebaseResponse response = fbClient.Get("Users/");
 
             //log in the user
-            var fbAuthLink = await auth.SignInWithEmailAndPasswordAsync(EmpObj.emp_Email, EmpObj.emp_Password);
-                string token = fbAuthLink.FirebaseToken;
-                //saving the token in a session variable
-                if (token != null)
-                {
-                    HttpContext.Session.SetString("_UserToken", token);
+            var fbAuthLink = await auth.SignInWithEmailAndPasswordAsync(EmpObj.email, EmpObj.password);
+            string token = fbAuthLink.FirebaseToken;
+            //saving the token in a session variable
+            if (token != null)
+            {
+                HttpContext.Session.SetString("_UserToken", token);
 
-                    return RedirectToAction("Index");
-                }
-                else
-                {
-                    return View();
-                }
+                return RedirectToAction("Index");
+            }
+            else
+            {
+                return View();
+            }
             /*fbClient = new FireSharp.FirebaseClient(ifc);
             FirebaseResponse response = fbClient.Get("Users/");
             dynamic data = JsonConvert.DeserializeObject<dynamic>(response.Body);
@@ -136,6 +136,6 @@ namespace XBCAD_WebApp.Controllers
             ViewBag.Logins = timestampList.OrderByDescending(x => x);
             return View();
         }*/
-
+        }
     }
 }

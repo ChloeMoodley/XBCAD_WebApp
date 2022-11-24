@@ -11,6 +11,10 @@ using FireSharp.Config;
 using FirebaseConfig = Firebase.Auth.FirebaseConfig;
 using Microsoft.AspNetCore.Authorization;
 using System.Security.Claims;
+using Firebase.Database;
+using Firebase.Database.Query;
+using System.Linq;
+using System.Threading.Tasks;
 
 namespace XBCAD_WebApp.Controllers
 {
@@ -78,7 +82,7 @@ namespace XBCAD_WebApp.Controllers
             return View();  
         }
 
-/*        public void SignInUser(string email, string token, bool isPersisted)
+       /* public void SignInUser(string email, string token, bool isPersisted)
         {
             var claims = new List<Claim>();
 
@@ -87,6 +91,7 @@ namespace XBCAD_WebApp.Controllers
                 claims.Add(new Claim(ClaimTypes.Email, email));
                 claims.Add(new Claim(ClaimTypes.Authentication, token));
                 var claimIdenties = new ClaimsIdentity(claims, DefaultAuthenicationTypes.ApplicationCookie);
+                var ctx = Request.GetDeclaredTrailers();
             }
             catch (Exception)
             {
@@ -95,24 +100,24 @@ namespace XBCAD_WebApp.Controllers
             }
         }*/
 
-/*        [HttpPost]
-        public async Task<IActionResult> LogIn(LoginViewModel loginModel)
-        {
-            //log in the user
-            var fbAuthLink = await auth.SignInWithEmailAndPasswordAsync(loginModel.Email, loginModel.Password);
-            string token = fbAuthLink.FirebaseToken;
-            //saving the token in a session variable
-            if (token != null)
-            {
-                HttpContext.Session.SetString("_UserToken", token);
+        /*        [HttpPost]
+                public async Task<IActionResult> LogIn(LoginViewModel loginModel)
+                {
+                    //log in the user
+                    var fbAuthLink = await auth.SignInWithEmailAndPasswordAsync(loginModel.Email, loginModel.Password);
+                    string token = fbAuthLink.FirebaseToken;
+                    //saving the token in a session variable
+                    if (token != null)
+                    {
+                        HttpContext.Session.SetString("_UserToken", token);
 
-                return RedirectToAction("Index");
-            }
-            else
-            {
-                return View();
-            }
-        }*/
+                        return RedirectToAction("Index");
+                    }
+                    else
+                    {
+                        return View();
+                    }
+                }*/
 
 
 

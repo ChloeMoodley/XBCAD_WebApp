@@ -15,12 +15,12 @@
     @foreach (var deal in Model)
     {
         <div class="col-sm-5">
-            <div class="card bg-warning">
-                <div class="row no-gutters">
-                    <div class="col-auto">
+            <div class="card bg-warning" style= "height:800px">
+                <div class="row no-gutters" style="height:800px">
+                    <div class="col-auto" style="height:800px">
                         <img class="card-img-top" src="~/lib/Images/Skytel_pic1.png" alt="Card image cap">
                     </div>
-                    <div class="col">
+                    <div class="col" style="height:800px">
                         <div class="card-body">
                             <h5 class="card-title">@Html.DisplayFor(modelItem => deal.Title)</h5>
                             <p class="card-text">@Html.DisplayFor(modelItem => deal.Description)</p>
