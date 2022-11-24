@@ -14,15 +14,24 @@ namespace XBCAD_WebApp.Controllers
 {
     public class EmployeeController : Controller
     {
-  
-/*        //Init of config, used to configure FireBase client with the path
+
+
+        //Init of config, used to configure FireBase client with the path
         //Referencing: https://www.freecodespot.com/blog/dotnet-core-crud-with-firebase-database/
-        IFirebaseConfig ifc = new FirebaseConfig()
+        IFirebaseConfig ifc = new FireSharp.Config.FirebaseConfig()
         {
             //AuthSecret = "2yHHLIYJd7mITvNBUV7cq3HVc9ItUv4nkmABbI4m",
             BasePath = "https://skytell-fbdb-default-rtdb.europe-west1.firebasedatabase.app/"
         };
-        IFirebaseClient fbClient;*/
+        IFirebaseClient fbClient;
+        /*        //Init of config, used to configure FireBase client with the path
+                //Referencing: https://www.freecodespot.com/blog/dotnet-core-crud-with-firebase-database/
+                IFirebaseConfig ifc = new FirebaseConfig()
+                {
+                    //AuthSecret = "2yHHLIYJd7mITvNBUV7cq3HVc9ItUv4nkmABbI4m",
+                    BasePath = "https://skytell-fbdb-default-rtdb.europe-west1.firebasedatabase.app/"
+                };
+                IFirebaseClient fbClient;*/
 
         FirebaseAuthProvider auth;
         public EmployeeController()
@@ -42,8 +51,11 @@ namespace XBCAD_WebApp.Controllers
         public async Task<IActionResult> Employee_Login(EmployeeModel EmpObj)
         {
 
-                //log in the user
-                var fbAuthLink = await auth.SignInWithEmailAndPasswordAsync(EmpObj.emp_Email, EmpObj.emp_Password);
+            fbClient = new FireSharp.FirebaseClient(ifc);
+            FirebaseResponse response = fbClient.Get("Users/");
+
+            //log in the user
+            var fbAuthLink = await auth.SignInWithEmailAndPasswordAsync(EmpObj.emp_Email, EmpObj.emp_Password);
                 string token = fbAuthLink.FirebaseToken;
                 //saving the token in a session variable
                 if (token != null)
