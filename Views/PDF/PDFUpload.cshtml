@@ -89,21 +89,27 @@
             <div class="col-md-12">
                 <div class="column">
                     <div style="background-color: #009DEA; position: fixed; left:450px; top:80px; width: 50%; height:80%">
-                        <h1 class="text-center" style="position: absolute; left:200px">Upload PDF</h1>
+                        <h1 class="text-center" style="position: fixed; left:660px; top:50px">Upload PDF</h1>
                         <div class="col-md-6">
-                            <div class="form-group" style="position: absolute; left:200px; top:120px">
+                            <div class="form-group" style="position: fixed; left:680px; top:250px">
                                 <label asp-for="pdf_name" class="control-label-" style="font-size:20px; color:white">Please Click Choose File to Upload Yello Trader</label>
                             </div>
 
-                            <div class="form-group" style="position: absolute; left:200px; top:170px">
-                                <<form asp-controller="PDF" asp-action="PDFUpload" method="post" enctype="multipart/form-data">
-                                    <input type="file" name="file" />
-                                    <hr />
-                                    <button type="submit">Upload</button>
+                            <div class="form-group" style="position: fixed; left:700px; top:320px">
+                                <form asp-controller="PDF" asp-action="PDFUpload" method="post" enctype="multipart/form-data">
+                                    <input type="file" name="file" class="btn btn-danger"/>
+                                    <input type="submit" class="btn btn-warning">
+                                    @*<button type="submit">Upload</button>*@
+
+                                    @*<form action="/action_page.php">
+                                        <input asp-for="pdf_name" type="file" id="myFile" name="filename" class="btn btn-warning">
+                                        <input type="submit">
+                                    </form>*@
+
                                 </form>
                             </div>
 
-                            <div class="form-group" style="position: absolute; left:100px; top:250px">
+                            <div class="form-group" style="position: fixed; left:550px; top:400px">
                                 <div class="form-group">
                                     @if (Model != null)
                                     {
@@ -111,10 +117,10 @@
                                         <table class="table table-bordered table-striped" cellpadding="0" cellspacing="0" border="1">
                                             <thead>
                                                 <tr>
-                                                    <th>SL</th>
-                                                    <th>PDF</th>
-                                                    <th>DISPLAY</th>
-                                                    <th>DELETE</th>
+                                                    <th style="background-color: white">SL</th>
+                                                    <th style="background-color: white">PDF</th>
+                                                    <th style="background-color: white">DISPLAY</th>
+                                                    <th style="background-color: white;">DELETE</th>
                                                 </tr>
                                             </thead>
                                             <tbody>
@@ -194,9 +200,9 @@
     </table>
 }*@
 
-@*<br /> <br />
-<embed id="embedPDF" src="~/files/@Model.pdf_name" style="width:500px, height:500px;" />
-*@
+<br /> <br />
+<embed id="embedPDF" src="~/files/@Model.pdf_name" style="width:500px, height:600px; position: fixed; left:730px; top:550px" />
+
 @section Scripts {
     @{
         await Html.RenderPartialAsync("_ValidationScriptsPartial");
