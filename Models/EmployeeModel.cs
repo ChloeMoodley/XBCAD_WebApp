@@ -1,4 +1,7 @@
-﻿namespace XBCAD_WebApp.Models
+﻿using System.ComponentModel.DataAnnotations;
+using System.Xml.Linq;
+
+namespace XBCAD_WebApp.Models
 {
     public class EmployeeModel
     {
@@ -7,15 +10,16 @@
         public string password { get; set; }
 
         // Creation of constructor ()
-        public EmployeeModel(string employee_Password, string employee_Email)
-        {
-            email = employee_Password;
-            password = employee_Email;
-        }
 
         public EmployeeModel()
         {
+            
+        }
 
+        public EmployeeModel(string employee_Password, string employee_Email)
+        {
+            Employee_Password = employee_Password;
+            Employee_Email = employee_Email;
         }
 
     }
