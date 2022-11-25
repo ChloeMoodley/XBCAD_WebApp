@@ -2,8 +2,10 @@
 
 namespace XBCAD_WebApp.Models
 {
+    //assisted with adding models Rick-Anderson (2022)
     public class FAQModel
     {
+        //this code was modified by Troelsen & Japikse (2017)
         public string? id { get; set; }
 
         [Required]
@@ -12,11 +14,13 @@ namespace XBCAD_WebApp.Models
         [Required]
         public string Answer { get; set; }
 
+        //this code was modified by Troelsen & Japikse (2017)
         public FAQModel()
         {
 
         }
 
+        //this code was modified by Troelsen & Japikse (2017)
         public FAQModel(string question, string answer)
         {
             this.Question = question;

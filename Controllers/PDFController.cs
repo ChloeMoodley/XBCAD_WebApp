@@ -11,6 +11,7 @@ namespace XBCAD_WebApp.Controllers
 
     public class PDFController : Controller
     {
+        //code adapted by ASP.NET Core PDF Viewer || PDF Upload || 100% Free (2021)
         public IFormFile file;
         Microsoft.AspNetCore.Hosting.IHostingEnvironment _hostingEnvironment = null;    
 
@@ -31,12 +32,14 @@ namespace XBCAD_WebApp.Controllers
             PDF_Model fileObj = new PDF_Model();
             fileObj.pdf_name = fileName;
 
+            //code adapted by ASP.NET Core PDF Viewer || PDF Upload || 100% Free (2021)
             string path = $"{_hostingEnvironment.WebRootPath}\\files\\";
 
             
 
             int nId = 1;
 
+            //code modified by ASP.NET Core PDF Viewer || PDF Upload || 100% Free (2021)
             foreach (string pdfPath in Directory.EnumerateFiles(path, "*.pdf"))
             {
                 fileObj.Files.Add(new PDF_Model()
@@ -46,6 +49,7 @@ namespace XBCAD_WebApp.Controllers
                     pdf_path = pdfPath
                 });
             }
+            //this code was modified by Troelsen & Japikse (2017)
             return View(fileObj);
         }
 
@@ -57,14 +61,15 @@ namespace XBCAD_WebApp.Controllers
             DirectoryInfo dir = new DirectoryInfo($"{hostingEnvironment.WebRootPath}\\files\\");
             foreach (FileInfo fi in dir.GetFiles())
             {
+                //this code was modified by Troelsen & Japikse (2017)
                 fi.Delete();
             }
             
 
             string fileName = $"{hostingEnvironment.WebRootPath}\\files\\{file.FileName}";
-            
-            
 
+
+            //code adapted by ASP.NET Core PDF Viewer || PDF Upload || 100% Free (2021)
             using (FileStream fileStream = System.IO.File.Create(fileName))
             {
                 file.CopyTo(fileStream);
@@ -77,7 +82,7 @@ namespace XBCAD_WebApp.Controllers
 
         public IActionResult PDFDisplay(string fileName)
         {
-            
+            //code adapted by ASP.NET Core PDF Viewer || PDF Upload || 100% Free (2021)
             string path = _hostingEnvironment.WebRootPath + "\\files\\";
             string[] fileEntries = Directory.GetFiles(path);
             fileName = fileEntries.First();

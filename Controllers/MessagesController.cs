@@ -20,7 +20,7 @@ namespace XBCAD_WebApp.Controllers
 {
     public class MessagesController : Controller
     {
-        //Init of config, used to configure FireBase client with the path
+        //Init of config, used to configure FireBase client with the path modified by FreeCode Spot (2022)
         //Referencing: https://www.freecodespot.com/blog/dotnet-core-crud-with-firebase-database/
         IFirebaseConfig ifc = new FirebaseConfig()
         {
@@ -101,10 +101,14 @@ namespace XBCAD_WebApp.Controllers
             return View();
         }
 
+        //binding modified and adapted by ‌Microsoft (2022)
+        //Link: https://learn.microsoft.com/en-us/aspnet/core/mvc/models/model-binding?view=aspnetcore-7.0 
         [HttpPost]
         [ValidateAntiForgeryToken]
         public IActionResult UploadMessage([Bind] Message faqObj)
         {
+            //crud function modified by FreeCode Spot (2022)
+            //Referencing: https://www.freecodespot.com/blog/dotnet-core-crud-with-firebase-database/
             try
             {
                 fbClient = new FireSharp.FirebaseClient(ifc);
@@ -132,7 +136,7 @@ namespace XBCAD_WebApp.Controllers
             return View();
         }
 
-        //Controller method to Delete a Deal
+        //Controller method to Delete a Deal modified by FreeCode Spot (2022)
         //Referencing: https://www.freecodespot.com/blog/dotnet-core-crud-with-firebase-database/
         public ActionResult Delete(string id)
         {

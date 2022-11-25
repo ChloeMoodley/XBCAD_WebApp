@@ -12,7 +12,7 @@ namespace XBCAD_WebApp.Controllers
 {
     public class FAQController : Controller
     {
-        //Init of config, used to configure FireBase client with the path
+        //Init of config, used to configure FireBase client with the path modified by FreeCode Spot (2022)
         //Referencing: https://www.freecodespot.com/blog/dotnet-core-crud-with-firebase-database/
         IFirebaseConfig ifc = new FirebaseConfig()
         {
@@ -42,13 +42,15 @@ namespace XBCAD_WebApp.Controllers
             return View(FAQList);
         }
 
-        //Index view only for employees to access (contains CRUD operations on FAQ's).
+        //Index view only for employees to access (contains CRUD operations on FAQ's). modified by FreeCode Spot (2022)
         //Referencing: https://www.freecodespot.com/blog/dotnet-core-crud-with-firebase-database/
         public ActionResult EmpFAQIndex()
         {
             //Get All FAQ's
             List<FAQModel> FAQList = new List<FAQModel>();
 
+            //Data retrival inspired by Stack Overflow (2022)
+            //Link:https://stackoverflow.com/questions/71707853/retrieve-cloud-firestore-data
             fbClient = new FireSharp.FirebaseClient(ifc);
             FirebaseResponse response = fbClient.Get("WebFAQ's");
             dynamic data = JsonConvert.DeserializeObject<dynamic>(response.Body);
@@ -64,7 +66,7 @@ namespace XBCAD_WebApp.Controllers
             return View(FAQList);
         }
 
-        //Controller methods to create a new FAQ and Answer to that FAQ.
+        //Controller methods to create a new FAQ and Answer to that FAQ modified by FreeCode Spot (2022)
         //Referencing: https://www.freecodespot.com/blog/dotnet-core-crud-with-firebase-database/
         [HttpGet]
         public IActionResult Create()
@@ -104,7 +106,7 @@ namespace XBCAD_WebApp.Controllers
 
         }
 
-        //Controller methods to Edit an FAQ and Answer to that FAQ.
+        //Controller methods to Edit an FAQ and Answer to that FAQ modified by FreeCode Spot (2022)
         //Referencing: https://www.freecodespot.com/blog/dotnet-core-crud-with-firebase-database/
         [HttpGet]
         public ActionResult Edit(string id)
@@ -123,7 +125,7 @@ namespace XBCAD_WebApp.Controllers
             return RedirectToAction("EmpFAQIndex");
         }
 
-        //Controller method to Delete an FAQ
+        //Controller method to Delete an FAQ modified by FreeCode Spot (2022)
         //Referencing: https://www.freecodespot.com/blog/dotnet-core-crud-with-firebase-database/
         public ActionResult Delete(string id)
         {

@@ -8,7 +8,7 @@ namespace XBCAD_WebApp.Models
 {
     public class LoginViewModel
     {
-
+        //code modified by Downing (2019) for datatype
         [Key]
         public int id { get; set; }
 

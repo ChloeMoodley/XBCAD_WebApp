@@ -12,7 +12,7 @@ namespace XBCAD_WebApp.Controllers
     public class DealController : Controller
     {
 
-        //Init of config, used to configure FireBase client with the path
+        //Init of config, used to configure FireBase client with the path modifed by FreeCode Spot (2022)
         //Referencing: https://www.freecodespot.com/blog/dotnet-core-crud-with-firebase-database/
         IFirebaseConfig ifc = new FirebaseConfig()
         {
@@ -30,6 +30,8 @@ namespace XBCAD_WebApp.Controllers
             FirebaseResponse response = fbClient.Get("WebDeals");
             dynamic data = JsonConvert.DeserializeObject<dynamic>(response.Body);
 
+            //crud functions modfied by FreeCode Spot (2022)
+            //Link: https://www.freecodespot.com/blog/dotnet-core-crud-with-firebase-database/
             if (data != null)
             {
                 foreach (var item in data)
@@ -42,7 +44,7 @@ namespace XBCAD_WebApp.Controllers
         }
 
 
-        //Controller methods to upload latest deals to the home page
+        //Controller methods to upload latest deals to the home page modifed by FreeCode Spot (2022)
         //Referencing: https://www.freecodespot.com/blog/dotnet-core-crud-with-firebase-database/
         [HttpGet]
         public IActionResult Upload()
@@ -81,7 +83,7 @@ namespace XBCAD_WebApp.Controllers
 
         }
 
-        //Controller method to Delete a Deal
+        //Controller method to Delete a Deal modified by FreeCode Spot (2022)
         //Referencing: https://www.freecodespot.com/blog/dotnet-core-crud-with-firebase-database/
         public ActionResult Delete(string id)
         {
